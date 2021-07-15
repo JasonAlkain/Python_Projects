@@ -1,19 +1,19 @@
 
 
-class Player():
+class Character():
     name = ''
     race = ''
     gender = ''
-
-
-class Gameplay(Player):
-    score = 0
+    money = 0
     items = []
-    gameMap = {}
+    equipment = {'Head': '', 'Body': '', 'Legs': ''}
 
 
-player = Player
+class Player(Character):
+    keyItems = []
+    skills = []
 
-gameplay = Gameplay
 
-gameplay.name
+class NPC(Character):
+    chatText = []
+    quests = []
