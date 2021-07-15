@@ -44,7 +44,7 @@ def nice_mean(nice, mean, name):
         prompt += 'for a conversation. \n'
         prompt += 'Will you be: \n'
         prompt += '[N]ice or [M]ean? \n'
-        prompt += '>>>: '
+        prompt += '>>> '
 
         pick = input(prompt).lower()
 
@@ -61,10 +61,64 @@ def nice_mean(nice, mean, name):
         score(nice, mean, name)
 
 
-def show_score(nice, mean, name): pass
+def show_score(nice, mean, name):
+    print('\n{}, your current score is:'.format(name))
+    print('  [ Nice: {} ] [ Mean: {} ]'.format(nice, mean))
 
 
-def score(nice, mean, name): pass
+def score(nice, mean, name):
+    if nice > 2:
+        win(nice, mean, name)
+        pass
+    if mean > 2:
+        lose(nice, mean, name)
+        pass
+    else:
+        nice_mean(nice, mean, name)
+        pass
+
+
+def win(nice, mean, name):
+    stringVar = '\n\t~~~~~ WIN ~~~~~\n'
+    stringVar += ('Nice job{}, you win!\n'.format(name))
+    stringVar += ('Everyone loves you and you\'ve \n')
+    stringVar += ('made lots of friends along the way!')
+    print(stringVar)
+    again(nice, mean, name)
+    pass
+
+
+def lose(nice, mean, name):
+    stringVar = '\n\t~~~~~ LOSE ~~~~~\n'
+    stringVar += 'Ahhh too bad {}, you lost!\n'.format(name)
+    stringVar += 'You live in a dirty beat-up \n'
+    stringVar += 'van down by the river, wretched \n'
+    stringVar += 'and all alone \n'
+    print(stringVar)
+    again(nice, mean, name)
+    pass
+
+
+def again(nice, mean, name):
+    stop = True
+    while stop:
+        choice = input('Do you want to play again? (y/n) \n>>> ').lower()
+        if choice == "y":
+            stop = False
+            reset(nice, mean, name)
+        if choice == "n":
+            print('\nOh, so sad to see you go!')
+            stop = False
+            quit()
+        else:
+            print('\nPlease enter [Y]es or [N]o.\n')
+    pass
+
+
+def reset(nice, mean, name):
+    nice = 0
+    mean = 0
+    start(nice, mean, name)
 
 
 if __name__ == "__main__":
