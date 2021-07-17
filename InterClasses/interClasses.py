@@ -98,7 +98,7 @@ def newPlayer():
     race = input('What is your race: ').capitalize()
     # request player for gender
     gender = input('What is your gender: ').capitalize()
-    # Setup skills
+    # Setup basic skills
     skills = ['Magic Missile', 'Friends (Concentration)', 'Mage Hand']
     # Setup money
     money = 50
